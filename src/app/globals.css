@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* In your global CSS file, e.g., src/styles/globals.css */
+.hide-scrollbar::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  
+  .hide-scrollbar {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .task-title {
+    overflow-wrap: break-word; /* Ensures long words break and wrap */
+    word-wrap: break-word;     /* Older support for breaking long words */
+    white-space: normal;       /* Allows the text to wrap */
+  }
+  
+  .task-description {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    white-space: normal;
+  }
+  
