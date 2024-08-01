@@ -17,11 +17,16 @@ const Signup = () => {
     if (localStorage.getItem('token')) {
       router.push('/');
     }else {
-      setLoading(false); // Set loading to false if no token is found
+      setLoading(false); 
     }
   }, [router]);
 
   const signup = async () => {
+    toast.success('Seting Up Your Profile !', {
+      className: 'bg-green-600 text-xl text-white font-semibold px-6 rounded-lg',
+      icon: '⌛',
+      duration: 7000,
+    });
     try {
       const response = await postUpRequest('/user/signup',username, email, password );
       setError(response.error);
