@@ -16,7 +16,7 @@ export default function Home() {
     if (!localStorage.getItem('token')) {
       router.push('/signin');
     }else {
-      setLoading(false); // Set loading to false if no token is found
+      setLoading(false); 
     }
   }, []);
 
@@ -25,7 +25,7 @@ export default function Home() {
     setName(username);
   },[]);
   if (loading) {
-    return null; // Render nothing or a loader while checking the token
+    return null; 
   }
   return (
     <main className="flex h-screen bg-[#F7F7F7]">

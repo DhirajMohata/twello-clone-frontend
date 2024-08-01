@@ -1,8 +1,8 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { DragDropContext, Draggable, Droppable } from '@hello-pangea/dnd';
 import AddTask from './Addtask';
-
+import SkeletonLoader from './SkeletonLoader';
 interface Task {
   _id: string;
   title: string;
@@ -26,11 +26,20 @@ const priorityOrder: Record<string, number> = {
 
 const Todo = ({ heading, tasks }: Taskboard) => {
   const [isAddTaskOpen, setIsAddTaskOpen] = useState(false);
+  const [loading, setLoading] = useState(true); 
 
   const handleAddTaskClick = () => {
     setIsAddTaskOpen(true);
   };
+  
+  useEffect(() => {
+    const loadTasks = setTimeout(() => {
+      setLoading(false);
+    }, 1500);
 
+    return () => clearTimeout(loadTasks);
+  }, []);
+    
   const handleCloseAddTask = (newTask?: Task) => {
     setIsAddTaskOpen(false);
     if (newTask) {
@@ -56,6 +65,15 @@ const Todo = ({ heading, tasks }: Taskboard) => {
             ref={provided.innerRef}
             {...provided.droppableProps}
           >
+            {loading ? (
+              <>
+                <SkeletonLoader />
+                <SkeletonLoader />
+                <SkeletonLoader />
+              </>
+            ) : (
+            
+              <div>
             {tasks.map((task, index) => (
               <Draggable key={task._id} draggableId={task._id} index={index}>
                 {(provided) => (
@@ -78,8 +96,6 @@ const Todo = ({ heading, tasks }: Taskboard) => {
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                     </svg>
-                    
-
 
                       {task.date}
                       </p>
@@ -88,6 +104,8 @@ const Todo = ({ heading, tasks }: Taskboard) => {
                 )}
               </Draggable>
             ))}
+            </div>
+          )}
             {provided.placeholder}
           </ul>
         )}
