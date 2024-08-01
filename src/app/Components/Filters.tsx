@@ -19,7 +19,7 @@ const Filters = () => {
             <input
             type="text"
             placeholder="Search"
-            className="bg-white text-gray-700 p-2 rounded-lg ml-4 w-96 pr-10"
+            className="bg-white text-gray-700 p-2 rounded-lg ml-4 w-56 pr-10"
             />
             <svg
             xmlns="http://www.w3.org/2000/svg"
