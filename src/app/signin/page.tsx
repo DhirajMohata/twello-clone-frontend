@@ -21,6 +21,7 @@ const Signin = () => {
     }
   }, [router]);
 
+
   const login = async (e: React.FormEvent) => {
     e.preventDefault();
     toast.success('Fetching Your Tasks !', {
@@ -36,17 +37,12 @@ const Signin = () => {
       localStorage.setItem('username', username);
       toast.success('SignIn successful!', {
         className: 'bg-green-600 txt-xl text-white font-bold px-4 py-3 rounded-lg',
-        icon: '✅',
+        icon: '😊',
         duration: 5000,
       });
       router.push('/');
     } catch (error) {
       console.error('Login failed:', error);
-      toast.error('Login failed! Please check your credentials and try again.', {
-        className: 'bg-red-600 text-white font-bold px-4 py-3 rounded-lg',
-        icon: '❌',
-        duration: 5000,
-      });
     }
   };
 

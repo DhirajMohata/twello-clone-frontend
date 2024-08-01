@@ -17,9 +17,9 @@ export const apiRequest = async (endpoint: string, method = 'GET') => {
       const errorMessage = errorResponse.message || 'An unexpected error occurred';
       
       // Show error toast
-      toast.error(`Error ${res.status}: ${errorMessage}`, {
-        className: 'bg-red-600 text-white font-bold px-4 py-3 rounded-lg',
-        icon: '❌',
+      toast.error(`OOPS !! ${res.status}: ${errorMessage}`, {
+        className: 'bg-red-600 text-white font-semibold px-4 py-3 rounded-lg',
+        icon: '🫠',
         duration: 5000,
       });
 
@@ -49,9 +49,9 @@ export const postRequest = async (endpoint: string, email: string, password: str
       const errorResponse = await res.json();
       const errorMessage = errorResponse.message || 'An unexpected error occurred';
       
-        toast.error(errorMessage , {
-          className: 'bg-red-600 text-xl text-white font-bold px-4 py-3 rounded-lg',
-          icon: '❌',
+        toast.error(`OOPS !! ${errorMessage}`, {
+          className: 'bg-red-600 text-xl text-white font-semibold px-4 py-3 rounded-lg',
+          icon: '🫠',
           duration: 5000,
         });
 
@@ -83,9 +83,9 @@ export const postUpRequest = async (endpoint: string, username: string, email: s
       const errorResponse = await res.json();
       const errorMessage = errorResponse.message || 'An unexpected error occurred';
       
-      toast.error(errorMessage , {
-        className: 'bg-red-600 text-xl text-white font-bold px-4 py-3 rounded-lg',
-        icon: '❌',
+      toast.error(`OOPS !! ${errorMessage}` , {
+        className: 'bg-red-600 text-xl text-white font-semibold px-4 py-3 rounded-lg',
+        icon: '🫠',
         duration: 5000,
       });
 
@@ -115,9 +115,9 @@ export const addTaskRequest = async (endpoint: string, title: string, descriptio
       const errorResponse = await res.json();
       const errorMessage = errorResponse.message || 'An unexpected error occurred';
       
-      toast.error(errorMessage , {
-        className: 'bg-red-600 text-xl text-white font-bold px-4 py-3 rounded-lg',
-        icon: '❌',
+      toast.error(`OOPS !! ${errorMessage}` , {
+        className: 'bg-red-600 text-xl text-white font-semibold px-4 py-3 rounded-lg',
+        icon: '🫠',
         duration: 5000,
       });
 

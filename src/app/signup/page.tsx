@@ -34,8 +34,8 @@ const Signup = () => {
       localStorage.setItem('token', token);
       localStorage.setItem('username', username);
       toast.success('SignUp successful!', {
-        className: 'bg-green-600 text-xl text-white font-bold px-4 py-3 rounded-lg',
-        icon: '✅',
+        className: 'bg-green-600 text-xl text-white font-semibold px-4 py-3 rounded-lg',
+        icon: '😊',
         duration: 5000,
       });
       router.push('/'); 

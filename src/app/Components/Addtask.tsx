@@ -33,8 +33,8 @@ const AddTask: React.FC<AddTaskProps> = ({ title, isOpen, onClose}) => {
 
       // Show success toast
       toast.success('Successfuly Added', {
-        className: 'bg-green-600 text-xl text-white font-bold px-4 py-3 rounded-lg',
-        icon: '✅',
+        className: 'bg-green-600 text-xl text-white font-semibold px-4 py-3 rounded-lg',
+        icon: '😊',
         duration: 5000,
       });
       
