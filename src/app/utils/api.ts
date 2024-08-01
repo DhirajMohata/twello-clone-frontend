@@ -1,9 +1,10 @@
 import { toast } from 'react-hot-toast';
 
 // General API request handler
+const url = 'https://trello-clone-backend-seven.vercel.app/api/v1';
 export const apiRequest = async (endpoint: string, method = 'GET') => {
   try {
-    const res = await fetch(`https://trello-clone-backend-seven.vercel.app/api/v1${endpoint}`, {
+    const res = await fetch(`${url}${endpoint}`, {
       method,
       headers: {
         'Content-Type': 'application/json',
@@ -35,7 +36,7 @@ export const apiRequest = async (endpoint: string, method = 'GET') => {
 // POST request handler
 export const postRequest = async (endpoint: string, email: string, password: string) => {
   try {
-    const res = await fetch(`https://trello-clone-backend-seven.vercel.app/api/v1${endpoint}`, {
+    const res = await fetch(`${url}${endpoint}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -69,7 +70,7 @@ export const postRequest = async (endpoint: string, email: string, password: str
 export const postUpRequest = async (endpoint: string, username: string, email: string, password: string) => {
   console.log(username, email, password, endpoint);
   try {
-    const res = await fetch(`https://trello-clone-backend-seven.vercel.app/api/v1${endpoint}`, {
+    const res = await fetch(`${url}${endpoint}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -101,7 +102,7 @@ export const postUpRequest = async (endpoint: string, username: string, email: s
 // Add Task request handler
 export const addTaskRequest = async (endpoint: string, title: string, description: string, priority: string, date: string, status: string) => {
   try {
-    const res = await fetch(`https://trello-clone-backend-seven.vercel.app/api/v1${endpoint}`, {
+    const res = await fetch(`${url}${endpoint}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
