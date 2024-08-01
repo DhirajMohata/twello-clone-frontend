@@ -23,7 +23,11 @@ const Signin = () => {
 
   const login = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    toast.success('Fetching Your Tasks !', {
+      className: 'bg-green-600 text-xl text-white font-semibold px-6 rounded-lg',
+      icon: '⌛',
+      duration: 7000,
+    });
     try {
       const response = await postRequest('/user/signin', email, password);
       const { token, username } = response;
