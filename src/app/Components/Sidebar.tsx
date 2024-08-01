@@ -9,7 +9,6 @@ const Sidebar = ({ name }: { name: string }) => {
   const logout = () => {
     localStorage.removeItem('token');
     window.location.reload();
-    window.location.href = '/signin';
   }
 
   const [isAddTaskOpen, setIsAddTaskOpen] = useState(false);
