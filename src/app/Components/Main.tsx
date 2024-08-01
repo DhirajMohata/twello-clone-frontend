@@ -45,7 +45,7 @@ const Main = () => {
       )
     );
     try {
-      await fetch('https://localhost:5000/api/v1/task/updateTasksBatch', {
+      await fetch('https://trello-clone-backend-seven.vercel.app/api/v1/task/updateTasksBatch', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

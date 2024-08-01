@@ -11,7 +11,10 @@ interface Task {
   date: string;
   status: string;
 }
-
+interface AddTaskProps {
+  onClose: (newTask: Task) => void;
+  // other props
+}
 interface Taskboard {
   heading: string;
   tasks: Task[];
@@ -41,12 +44,13 @@ const Todo = ({ heading, tasks }: Taskboard) => {
   }, []);
     
   const handleCloseAddTask = (newTask?: Task) => {
-    setIsAddTaskOpen(false);
     if (newTask) {
       const newTasks = [...tasks, newTask];
       newTasks.sort((a, b) => priorityOrder[b.priority] - priorityOrder[a.priority]);
       // Update tasks state
     }
+    setIsAddTaskOpen(false);
+    
   };
 
   return (

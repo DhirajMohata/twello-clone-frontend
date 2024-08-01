@@ -1,17 +1,15 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { addTaskRequest } from '../utils/api';
-import { useRouter } from 'next/navigation';
 import { toast } from 'react-hot-toast';
 
 interface AddTaskProps {
   title: string;
   isOpen: boolean;
-  onClose: () => void;
+  onClose : () => void;
 }
 
-const AddTask: React.FC<AddTaskProps> = ({ title, isOpen, onClose }) => {
-  const router = useRouter();
+const AddTask: React.FC<AddTaskProps> = ({ title, isOpen, onClose}) => {
   const [status, setStatus] = React.useState(title);
   const [main, setMain] = useState('');
   const [description, setDescription] = useState('');
@@ -39,7 +37,7 @@ const AddTask: React.FC<AddTaskProps> = ({ title, isOpen, onClose }) => {
         icon: '✅',
         duration: 5000,
       });
-
+      
       window.location.reload();
       onClose();
     } catch (error) {
