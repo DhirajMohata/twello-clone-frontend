@@ -10,11 +10,14 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [errorMsg, setError] = useState('SignUp failed');
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
       router.push('/');
+    }else {
+      setLoading(false); // Set loading to false if no token is found
     }
   }, [router]);
 
@@ -44,6 +47,10 @@ const Signup = () => {
     e.preventDefault();
     signup();
   };
+
+  if (loading) {
+    return null; // Render nothing or a loader while checking the token
+  }
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-b from-white to-[#AFA3FF]">
